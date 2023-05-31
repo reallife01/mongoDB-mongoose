@@ -6,8 +6,6 @@ const path = require("path");
 const cors = require("cors");
 const mongoose = require("mongoose");
 
-
-
 // custom modules
 const corsOptions = require("./config/corsOptions");
 const { logger } = require("./middleware/logEvents");
@@ -15,10 +13,10 @@ const errorHandler = require("./middleware/errorHandler");
 const verifyJWT = require("./middleware/verifyJWT");
 const cookieParser = require("cookie-parser");
 const credential = require("./middleware/credential");
-const connectDB = require('./config/dbConnect')
+const connectDB = require("./config/dbConnect");
 
 const PORT = process.env.PORT || 8500;
-connectDB()
+connectDB();
 
 // custom middleware logger
 app.use(logger);
@@ -65,9 +63,7 @@ app.all("*", (req, res) => {
 
 app.use(errorHandler);
 
-mongoose.connection.once("open", () =>{
+mongoose.connection.once("open", () => {
   console.log("Connected to MongoDB");
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
-})
-
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+});

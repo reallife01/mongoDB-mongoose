@@ -1,33 +1,30 @@
-const data = {
-  employees: require("../models/employees.json"),
-  setEmployees: function (data) {
-    this.employees = data;
-  },
+const Employee = require("../models/Employee")
+
+const getAllEmployees = async (req, res) => {
+  const employee = await Employee.find()
+  if(!employee) return res.status(201).json({message: "No employee found"});
+  res.json(employee)
 };
 
-const getAllEmployees = (req, res) => {
-  res.json(data.employees);
-};
-
-const createNewEmployee = (req, res) => {
-  const newEmployee = {
-    id: data.employees?.length
-      ? data.employees[data.employees.length - 1].id + 1
-      : 1,
-    firstname: req.body.firstname,
-    lastname: req.body.lastname,
-  };
-
-  if (!newEmployee.firstname || !newEmployee.lastname) {
-    return res
-      .status(400)
-      .json({ message: "First and last names are required." });
+const createNewEmployee = async (req, res) => {
+  if(!req?.body?.firstname || !req?.body?.lastname) {
+    res.status(404).json({"message": "firstname and lastname are required"});
   }
 
-  data.setEmployees([...data.employees, newEmployee]);
-  res.status(201).json(data.employees);
-};
+try {
+  const result = await Employee.create({
+    firstname: req.body.firstname,
+    lastname: req.body.lastname
+  })
+  res.status(201).json(result);
+ 
+  
+} catch (err) {
+  console.log(err);
+  
+}
 
+}
 const updateEmployee = (req, res) => {
   const employee = data.employees.find(
     (emp) => emp.id === parseInt(req.body.id)

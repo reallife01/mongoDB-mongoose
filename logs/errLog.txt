@@ -1,0 +1,7 @@
+2023-05-18		12:50:24	f68333f6-205f-423d-b8a7-7d80bd109824	 Error: Not allowed by CORS 
+2023-05-19		06:40:19	a329f72c-3d92-4126-ae35-2b9c031be484	 SyntaxError: Unexpected string in JSON at position 16 
+2023-05-19		06:49:47	aad06909-76e0-4287-a122-66637316b676	 TypeError: Cannot read properties of undefined (reading 'id') 
+2023-05-24		12:01:24	cb390a14-54b2-42a0-8325-211ce30eb018	 Error: Cannot set headers after they are sent to the client 
+2023-05-28		20:34:12	8b8a6528-9f96-4e6b-b212-6b0feebf28e6	 Error: Cannot set headers after they are sent to the client 
+2023-05-28		20:34:29	b8d23ff1-7c52-4b88-a8b1-8c12483d0e90	 Error: Cannot set headers after they are sent to the client 
+2023-05-29		08:12:41	f6a24e15-69f6-4c26-a2a1-9244f7300bb7	 TypeError: Cannot read properties of undefined (reading 'username') 

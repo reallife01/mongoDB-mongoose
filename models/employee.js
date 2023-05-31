@@ -9,10 +9,10 @@ const employeeSchema = new Schema({
     lastname: {
         type: String,
         require: true,
-    },
-
+    }
 });
 
-const Employees = mongoose.model('employees', employeeSchema);
+// module.exports =  mongoose.model("Employee", employeeSchema);
 
-module.exports = Employees
+const Employee = mongoose.model("Employee", employeeSchema);
+module.exports = Employee
